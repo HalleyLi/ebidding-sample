@@ -1,0 +1,25 @@
+# application.yml
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: account-service
+  datasource:
+    url: ${ACCOUNT_DATASOURCE_URL}
+    username: ${ACCOUNT_DATASOURCE_USERNAME}
+    password: ${ACCOUNT_DATASOURCE_PASSWORD}
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+ebidding:
+  signing-secret: ${SIGNING_SECRET}
+  hash-key: ${HASH_KEY}
+
+server:
+  servlet:
+    context-path: /api

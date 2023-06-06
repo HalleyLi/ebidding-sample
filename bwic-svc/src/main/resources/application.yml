@@ -1,0 +1,29 @@
+# application.yml
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: bwic-service
+  datasource:
+    url: ${BWIC_DATASOURCE_URL}
+    username: ${BWIC_DATASOURCE_USERNAME}
+    password: ${BWIC_DATASOURCE_PASSWORD}
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  main:
+    allow-bean-definition-overriding: true
+
+ebidding:
+  common:
+    service-name: bwic-service
+  bid-service-endpoint: ${BID_SERVICE_ENDPOINT}
+  pricer-service-endpoint: ${PRICER_SERVICE_ENDPOINT}
+
+server:
+  servlet:
+    context-path: /api

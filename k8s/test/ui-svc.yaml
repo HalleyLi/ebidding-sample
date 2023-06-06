@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui-svc-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ui-svc
+      env: test
+  template:
+    metadata:
+      labels:
+        app: ui-svc
+        env: test
+    spec:
+      containers:
+        - name: ui-svc
+          image: ebidding/spa
+          imagePullPolicy: Never
+          ports:
+            - name: http-port
+              containerPort: 80
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 100m
+            limits:
+              memory: 600Mi
+              cpu: 500m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ui-service
+spec:
+  selector:
+    app: ui-svc
+    env: test
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

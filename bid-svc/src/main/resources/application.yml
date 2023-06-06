@@ -1,0 +1,30 @@
+# application.yml
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: bid-service
+  datasource:
+    url: ${BID_DATASOURCE_URL}
+    username: ${BID_DATASOURCE_USERNAME}
+    password: ${BID_DATASOURCE_PASSWORD}
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  main:
+    allow-bean-definition-overriding: true
+
+ebidding:
+  common:
+    service-name: bid-service
+  signing-secret: ${SIGNING_SECRET}
+  bwic-service-endpoint: ${BWIC_SERVICE_ENDPOINT}
+
+server:
+  servlet:
+    context-path: /api
+

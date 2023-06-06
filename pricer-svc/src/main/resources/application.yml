@@ -1,0 +1,14 @@
+# application.yml
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: pricer-service
+ebidding:
+  common:
+    service-name: pricer-service
+
+server:
+  servlet:
+    context-path: /api

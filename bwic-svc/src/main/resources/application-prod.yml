@@ -1,0 +1,2 @@
+logging:
+  config: /etc/ebidding/logback-spring.xml

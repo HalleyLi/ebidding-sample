@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      routes:
+        - id: account-service
+          uri: ${ACCOUNT_SERVICE_ENDPOINT}
+          predicates:
+            - Path=/api/v1/account/**
+        - id: bid-service
+          uri: ${BID_SERVICE_ENDPOINT}
+          predicates:
+            - Path=/api/v1/bid/**
+          filters:
+            - JWTFilter
+        - id: bwic-service
+          uri: ${BWIC_SERVICE_ENDPOINT}
+          predicates:
+            - Path=/api/v1/bwic/**
+          filters:
+            - JWTFilter
+        - id: ebidding-ui
+          uri: ${UI_SERVICE_ENDPOINT}
+          predicates:
+            - Path=/**
+
+server:
+  port: 80

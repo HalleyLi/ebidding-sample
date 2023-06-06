@@ -1,0 +1,14 @@
+import { intercepter, mock } from '../config';
+import { LoginParams, Role } from '../../models/user/login';
+
+mock.mock('/account-svc/account/login', 'post', (config: any) => {
+  const body: LoginParams = JSON.parse(config?.body);
+
+  return intercepter({
+    "id": "1",
+    "name": "test-trader",
+    "memberSince": "2022-05-07T11:56:49Z",
+    "role": body.username?.toLocaleLowerCase().indexOf("client") > -1 ? Role.CLIENT : Role.SALES,
+    "token": "will implement jwt token soon"
+  });
+});

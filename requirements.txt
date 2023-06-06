@@ -1,0 +1,6 @@
+Docker
+ - mariadb
+Workbench
+JDK11
+node14
+Maven 3
