@@ -1,7 +1,7 @@
 import { intercepter, mock } from '../config';
 import { BWICBidItem } from '@/models/bwic/bwic';
 
-mock.mock(RegExp('/bwic-svc/bwic/bwic-bid-details.*'), 'get', (config: any) => {
+mock.mock(RegExp('/api/v1/bwic/bwic-bid-details.*'), 'get', (config: any) => {
     let allBWICs: BWICBidItem[] = [];
     new Array(100).fill(undefined).forEach((item, index) => {
         allBWICs.push({

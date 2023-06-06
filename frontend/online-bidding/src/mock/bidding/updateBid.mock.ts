@@ -1,7 +1,7 @@
 import { intercepter, mock } from '../config';
 import { BidSubmitParams } from '../../models/bidding/bidding';
 
-mock.mock('/bidding-svc/bid/update', 'post', (config: any) => {
+mock.mock('/api/v1/bid/update', 'post', (config: any) => {
     const body: BidSubmitParams = JSON.parse(config?.body);
     console.log("submit Bidding", body)
     return intercepter({

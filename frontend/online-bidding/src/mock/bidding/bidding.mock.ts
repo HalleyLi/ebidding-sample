@@ -1,7 +1,7 @@
 import { intercepter, mock } from '../config';
 import { BiddingItem } from '@/models/bidding/bidding';
 
-mock.mock(RegExp('/bidding-svc/bid/list.*'), 'get', (config: any) => {
+mock.mock(RegExp('/api/v1/bid/list.*'), 'get', (config: any) => {
     let allBidding: BiddingItem[] = [];
     new Array(100).fill(undefined).forEach((item, index) => {
         allBidding.push({

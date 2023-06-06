@@ -1,7 +1,7 @@
 import { intercepter, mock } from '../config';
 import { LoginParams, Role } from '../../models/user/login';
 
-mock.mock('/account-svc/account/login', 'post', (config: any) => {
+mock.mock('/api/v1/account/login', 'post', (config: any) => {
   const body: LoginParams = JSON.parse(config?.body);
 
   return intercepter({

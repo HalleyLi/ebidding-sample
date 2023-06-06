@@ -1,7 +1,7 @@
 import { intercepter, mock } from '../config';
 import { BwicSubmitParams } from '@/models/bwic/bwic';
 
-mock.mock('/bwic-svc/bwic/create', 'post', (config: any) => {
+mock.mock('/api/v1/bwic/create', 'post', (config: any) => {
     const body: BwicSubmitParams = JSON.parse(config?.body);
     console.log("submit Bwic", body)
     let id = "10";

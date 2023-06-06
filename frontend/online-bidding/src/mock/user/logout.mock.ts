@@ -1,6 +1,6 @@
 import { mock } from '../config';
 
-mock.mock('/account-svc/account/logout', 'post',
+mock.mock('/api/v1/account/logout', 'post',
     {
         "message": null,
         "code": "SUCCESS",
