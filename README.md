@@ -21,3 +21,5 @@ How to package docker
 3. run `docker compose build`
 4. run `docker compose up -d`
 5. open http://localhost to check
+
+test works fine.
